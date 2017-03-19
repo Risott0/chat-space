@@ -65,7 +65,7 @@
 
     class User < ActiveRecord::Base
       has_many :messages
-      has_many :relations
+      has_many :group_userss
       has_many :groups, through: :relations
     end
 
@@ -76,7 +76,7 @@
 
     class Group < ActiveRecord::Base
       has_many :messages
-      has_many :relations
+      has_many :group_users
       has_many :users, through: :relations
     end
 
