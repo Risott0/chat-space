@@ -10,12 +10,9 @@
 
 |   カラム   |        型         |     制限     |
 |------------|-------------------|--------------|
-| id*        | integer           | null :false  |
 | message    | text              |              |
 | user_id    | references :user  |              |
 | group_id   | references :group | （add index） |
-| created_at | datetime          |              |
-| updated_at | datetime          |              |
 
 
 <br>
@@ -25,12 +22,9 @@
 
 |   カラム   |    型    |     制限     |
 |------------|----------|--------------|
-| id*        | integer  | null: false  |
 | name       | string   |              |
 | email      | text     | unique: true |
 | password   | string   |              |
-| created_at | datetime |              |
-| updated_at | datetime |              |
 
 <br>
 
@@ -39,20 +33,17 @@
 
 |   カラム   |    型    |     制限     |
 |------------|----------|--------------|
-| id*        | integer  | null: false  |
 | name       | string   |              |
-| created_at | datetime |              |
-| updated_at | datetime |              |
 
 <br>
 
-### relationsテーブル
+### group_usersテーブル
 グループとユーザーの対応関係を保存するテーブルのカラム
 
-|  カラム  |        型         | 制限 |
-|----------|-------------------|------|
-| user_id  | references :user  |      |
-| group_id | references :group |      |
+|  カラム  |        型         |      制限     |
+|----------|-------------------|---------------|
+| user_id  | references :user  |               |
+| group_id | references :group | （add index） |
 
 
 <br>
@@ -90,10 +81,10 @@
     end
 
 ##### リレーションテーブル
-すべてのリレーションはは一つのユーザーに属している  
-すべてのリレーションはは一つグループに属している  
+すべてのリレーションは一つのユーザーに属している  
+すべてのリレーションは一つグループに属している  
 
-    class Relation < ActiveRecord::Base
+    class Group_user < ActiveRecord::Base
       belongs_to :user
       belongs_to :group
     end
