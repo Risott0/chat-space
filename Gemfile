@@ -46,4 +46,4 @@ group :development do
 end
 
 gem "haml-rails", "~> 0.9"
-
+gem "font-awesome-rails"
