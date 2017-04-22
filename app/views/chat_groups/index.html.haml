@@ -1,46 +1,47 @@
 .contents
-  .chat-side
-    .chat-side__user
-      .chat-side__user--name
+.chat-side
+  .chat-side__user
+    .chat-side__user-content
+      .chat-side__user-name
         seiya
-      %a.chat-side__user--new-group
+      %a.chat-side__user--new-group{:href => "/groups/new"}
         %i.fa.fa-pencil-square-o
-      %a.chat-side__user--edit-user
+      %a.chat-side__user--edit-user{:href => "/users/edit"}
         %i.fa.fa-cog
-    .chat-side__groups
-      .chat-side__groups--list
-        %a
-          .chat-side__group
-            .chat-side__group--name
-              test
-            .chat-side__group--message
-              test
-  .chat-main
-    .chat-main__header
-      .chat-main__header--group.clearfix
-        .chat-main__header--group-name
-          test
-        .chat-main__header--group-members
-          Member:
-          %i
-            seiya
-      %a.chat-main__header-edit-btn
+  .chat-side__groups
+    .chat-side__groups-list
+      %a{:href => "/groups/162/messages"}
+        .chat-side__group
+          .chat-side__group-name
+            test
+          .chat-side__group-message
+            test
+.chat-main
+  .chat-main__header
+    .chat-main__header--group.clearfix
+      .chat-main__header--group-name
+        test
+      %a.chat-main__header--group-edit-btn{:href => "/groups/162/edit"}
         edit
-    .chat-main__body
-      .chat-main__body--messages-list
-        .chat-main__message.clearfix
-          .chat-main__message-name
-            seiya
-          .chat-main__message-time
-            2017/04/09 23:42:00
+    .chat-main__header-members
+      Menber:
+      %i
+        seiya
+  .chat-main__body
+    .chat-main__body--messages-list
+      .chat-main__message.clearfix{"data-id" => "199"}
+        .chat-main__message-name
+          seiya
+        .chat-main__message-time
+          2017/04/09 23:42:00
         .chat-main__message-body
           test
-          %img.chat-main__message-body-image
-    .chat-main__footer
-      %form
-        .chat-main__footer-body
-          %input#message_body.message{:name => "message[body]", :placeholder => "type a message", :type => "text"}/
-          %label.chat-file{:for => "message_image"}
-            %input#message_image.image{:name => "message[image]", :type => "file"}/
-            %i.fa.fa-image
-        %input.submit{"data-disable-with" => "Send", :name => "commit", :type => "submit", :value => "Send"}/
+          %img.chat-main__message-body-image{:src => ""}/
+  .chat-main__footer
+    %form
+      .chat-main__footer-body
+        %input#message_body.message{:name => "message[body]", :placeholder => "type a message", :type => "text"}/
+        %label.chat-file{:for => "message_image"}
+          %input#message_image.image{:name => "message[image]", :type => "file"}/
+          %i.fa.fa-image
+      %input.submit{"data-disable-with" => "Send", :name => "commit", :type => "submit", :value => "Send"}/
